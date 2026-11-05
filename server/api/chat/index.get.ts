@@ -1,0 +1,2 @@
+import { createHash } from 'node:crypto'
+export default defineEventHandler(async event => { const token = getCookie(event, 'bc_chat'); if (!token || !/^[a-f0-9]{64}$/.test(token)) return []; const conversation = createHash('sha256').update(token).digest('hex'); const [rows] = await db().execute('SELECT id,sender,message,created_at FROM chat_messages WHERE conversation=? ORDER BY id ASC LIMIT 500', [conversation]); return rows })

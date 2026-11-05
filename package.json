@@ -1,0 +1,1 @@
+{"name":"bunkerclubasia","private":true,"type":"module","scripts":{"dev":"nuxt dev --host 0.0.0.0","build":"nuxt build","preview":"nuxt preview --host 0.0.0.0","typecheck":"nuxt typecheck"},"dependencies":{"bcryptjs":"^3.0.2","mysql2":"^3.14.0","nuxt":"^3.17.5","zod":"^4.6.7"}}

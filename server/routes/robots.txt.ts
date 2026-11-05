@@ -1,0 +1,1 @@
+export default defineEventHandler(event => { setResponseHeader(event, 'Content-Type', 'text/plain'); return 'User-agent: *\nDisallow: /admin\nDisallow: /api/\nSitemap: https://www.bunkerclubasia.com/sitemap.xml\n' })

@@ -1,0 +1,1 @@
+export default defineEventHandler(async event => { requireAdmin(event); const [rows] = await db().query('SELECT conversation, MAX(created_at) AS updated_at, COUNT(*) AS message_count FROM chat_messages GROUP BY conversation ORDER BY updated_at DESC LIMIT 100'); return rows })

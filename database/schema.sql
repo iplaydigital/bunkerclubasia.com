@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS inquiries (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  kind ENUM('contact','quote') NOT NULL,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(254) NOT NULL,
+  phone VARCHAR(50) NOT NULL DEFAULT '',
+  model VARCHAR(255) NOT NULL DEFAULT '',
+  message TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS chat_messages (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  conversation CHAR(64) NOT NULL,
+  sender ENUM('visitor','admin') NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX conversation_id (conversation, id)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
